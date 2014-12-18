@@ -3,18 +3,58 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCafeClientDemo", "GitCafeClientDemo\GitCafeClientDemo.csproj", "{7196929D-5F88-4383-B7F1-6015CC801888}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCafeModule.ToolBar", "GitCafeModule.ToolBar\GitCafeModule.ToolBar.csproj", "{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitCafeModule", "GitCafeModule", "{DA3AAE82-2225-4F75-B057-59BD301DB628}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCafeModule.RepositoryBox", "GitCafeModule.RepositoryBox\GitCafeModule.RepositoryBox.csproj", "{016D5A52-2235-45ED-AAC7-AACFC62843AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7196929D-5F88-4383-B7F1-6015CC801888}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7196929D-5F88-4383-B7F1-6015CC801888}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{7196929D-5F88-4383-B7F1-6015CC801888}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{7196929D-5F88-4383-B7F1-6015CC801888}.Debug|x86.ActiveCfg = Debug|x86
 		{7196929D-5F88-4383-B7F1-6015CC801888}.Debug|x86.Build.0 = Debug|x86
+		{7196929D-5F88-4383-B7F1-6015CC801888}.Release|Any CPU.ActiveCfg = Release|x86
+		{7196929D-5F88-4383-B7F1-6015CC801888}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{7196929D-5F88-4383-B7F1-6015CC801888}.Release|Mixed Platforms.Build.0 = Release|x86
 		{7196929D-5F88-4383-B7F1-6015CC801888}.Release|x86.ActiveCfg = Release|x86
 		{7196929D-5F88-4383-B7F1-6015CC801888}.Release|x86.Build.0 = Release|x86
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}.Release|x86.ActiveCfg = Release|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1} = {DA3AAE82-2225-4F75-B057-59BD301DB628}
+		{016D5A52-2235-45ED-AAC7-AACFC62843AD} = {DA3AAE82-2225-4F75-B057-59BD301DB628}
 	EndGlobalSection
 EndGlobal

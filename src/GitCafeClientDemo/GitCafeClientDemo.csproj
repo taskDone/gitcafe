@@ -92,6 +92,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -123,6 +124,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\add.png" />
     <Content Include="ThridParty\MahApps.Metro.dll" />
     <Content Include="ThridParty\Microsoft.Practices.Prism.dll" />
     <Content Include="ThridParty\Microsoft.Practices.Prism.Interactivity.dll" />
@@ -130,6 +132,16 @@
     <Content Include="ThridParty\Microsoft.Practices.ServiceLocation.dll" />
     <Content Include="ThridParty\Microsoft.Practices.Unity.dll" />
     <Content Include="ThridParty\System.Windows.Interactivity.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GitCafeModule.RepositoryBox\GitCafeModule.RepositoryBox.csproj">
+      <Project>{016D5A52-2235-45ED-AAC7-AACFC62843AD}</Project>
+      <Name>GitCafeModule.RepositoryBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GitCafeModule.ToolBar\GitCafeModule.ToolBar.csproj">
+      <Project>{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}</Project>
+      <Name>GitCafeModule.ToolBar</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
