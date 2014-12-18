@@ -8,6 +8,7 @@
     <Grid>
         <ListBox Padding="3">
             <ListBox.Items>
+                <!--<ListBoxItem Content="aaaaaa" />
                 <ListBoxItem Content="aaaaaa" />
                 <ListBoxItem Content="aaaaaa" />
                 <ListBoxItem Content="aaaaaa" />
@@ -19,8 +20,7 @@
                 <ListBoxItem Content="aaaaaa" />
                 <ListBoxItem Content="aaaaaa" />
                 <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
+                <ListBoxItem Content="aaaaaa" />-->
             </ListBox.Items>
         </ListBox>
     </Grid>
