@@ -16,7 +16,7 @@
             <Grid>
                 <Button Margin="10" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="0">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="../Images/add.png" Stretch="Fill" Height="30" Width="30" />
+                        <Image Source="../Images/clone.png" Stretch="Fill" Height="30" Width="30" />
                         <TextBlock Text="克隆/新建" Margin="0,3,0,0" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
@@ -25,7 +25,7 @@
 
             <Button Margin="10" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="0">
                 <StackPanel Orientation="Vertical">
-                    <Image Source="../Images/add.png" Stretch="Fill" Height="30" Width="30" />
+                    <Image Source="../Images/commit.png" Stretch="Fill" Height="30" Width="30" />
                     <TextBlock Text="提交" Margin="0,3,0,0" HorizontalAlignment="Center" />
                 </StackPanel>
             </Button>
@@ -39,7 +39,7 @@
 
             <Button Margin="10" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="0">
                 <StackPanel Orientation="Vertical">
-                    <Image Source="../Images/add.png" Stretch="Fill" Height="30" Width="30" />
+                    <Image Source="../Images/push.png" Stretch="Fill" Height="30" Width="30" />
                     <TextBlock Text="推送" Margin="0,3,0,0" HorizontalAlignment="Center" />
                 </StackPanel>
             </Button>

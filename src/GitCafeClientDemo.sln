@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitCafeModule", "GitCafeMod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCafeModule.RepositoryBox", "GitCafeModule.RepositoryBox\GitCafeModule.RepositoryBox.csproj", "{016D5A52-2235-45ED-AAC7-AACFC62843AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCafeModule.Working", "GitCafeModule.Working\GitCafeModule.Working.csproj", "{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,16 @@ Global
 		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{016D5A52-2235-45ED-AAC7-AACFC62843AD}.Release|x86.ActiveCfg = Release|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +68,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1} = {DA3AAE82-2225-4F75-B057-59BD301DB628}
 		{016D5A52-2235-45ED-AAC7-AACFC62843AD} = {DA3AAE82-2225-4F75-B057-59BD301DB628}
+		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE} = {DA3AAE82-2225-4F75-B057-59BD301DB628}
 	EndGlobalSection
 EndGlobal

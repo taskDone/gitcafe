@@ -7,6 +7,7 @@ using System.Windows;
 
 using GitCafeModule.ToolBar;
 using GitCafeModule.RepositoryBox;
+using GitCafeModule.Working;
 using Microsoft.Practices.Prism.Modularity;
 
 namespace GitCafeClientDemo
@@ -33,6 +34,7 @@ namespace GitCafeClientDemo
             
             moduleCatalog.AddModule(typeof(ToolBarModule));
             moduleCatalog.AddModule(typeof(RepositoryBoxModule));
+            moduleCatalog.AddModule(typeof(WorkingModule));
         }
     }
 }

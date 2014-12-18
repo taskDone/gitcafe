@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}</ProjectGuid>
+    <ProjectGuid>{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GitCafeModule.ToolBar</RootNamespace>
-    <AssemblyName>GitCafeModule.ToolBar</AssemblyName>
+    <RootNamespace>GitCafeModule.Working</RootNamespace>
+    <AssemblyName>GitCafeModule.Working</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -39,10 +39,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\GitCafeClientDemo\ThridParty\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -69,10 +65,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ToolBarModule.cs" />
-    <Compile Include="Views\ToolBarView.xaml.cs">
-      <DependentUpon>ToolBarView.xaml</DependentUpon>
+    <Compile Include="Views\WorkView.xaml.cs">
+      <DependentUpon>WorkView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WorkingModule.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,22 +80,13 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\ToolBarView.xaml">
+    <Resource Include="Images\gitcafe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\WorkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\commit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\push.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\clone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
