@@ -4,14 +4,18 @@ using System.Linq;
 using System.Text;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
 
 namespace GitCafeModule.RepositoryBox
 {
     public class RepositoryBoxModule : IModule
     {
         private IRegionViewRegistry regionViewRegistry;
-        public RepositoryBoxModule(IRegionViewRegistry region)
+        private IUnityContainer container;
+
+        public RepositoryBoxModule(IUnityContainer container,IRegionViewRegistry region)
         {
+            this.container = container;
             this.regionViewRegistry = region;
         }
 
