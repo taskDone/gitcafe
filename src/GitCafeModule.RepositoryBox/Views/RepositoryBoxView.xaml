@@ -5,23 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <DataTemplate x:Key="listBoxTemplate">
+            <StackPanel Margin="3" Orientation="Vertical">
+                <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="3" />
+                <TextBlock Text="{Binding LocalPath}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
-        <ListBox Padding="3">
-            <ListBox.Items>
-                <!--<ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />
-                <ListBoxItem Content="aaaaaa" />-->
-            </ListBox.Items>
+        <ListBox Padding="3" ItemsSource="{Binding Repositories, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 SelectedItem="{Binding CurrentGitCafeRepositry}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="3" Orientation="Vertical">
+                    <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="3" />
+                    <TextBlock Text="{Binding LocalPath}" />
+                </StackPanel>
+                </DataTemplate>                
+            </ListBox.ItemTemplate>
+
         </ListBox>
     </Grid>
 </UserControl>

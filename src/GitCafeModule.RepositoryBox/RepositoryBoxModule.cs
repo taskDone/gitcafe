@@ -21,7 +21,9 @@ namespace GitCafeModule.RepositoryBox
 
         public void Initialize()
         {
-            regionViewRegistry.RegisterViewWithRegion("RepositoryBoxRegion", typeof(Views.RepositoryBoxView));
+            container.RegisterType<ViewModels.RepositoryBoxViewModel>();
+            container.RegisterType<Views.RepositoryBoxView>();
+            regionViewRegistry.RegisterViewWithRegion("RepositoryBoxRegion",()=>container.Resolve<Views.RepositoryBoxView>());
         }
     }
 }

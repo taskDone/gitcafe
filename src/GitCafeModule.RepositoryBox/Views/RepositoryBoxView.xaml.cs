@@ -19,9 +19,10 @@ namespace GitCafeModule.RepositoryBox.Views
     /// </summary>
     public partial class RepositoryBoxView : UserControl
     {
-        public RepositoryBoxView()
+        public RepositoryBoxView(ViewModels.RepositoryBoxViewModel vm)
         {
             InitializeComponent();
+            this.DataContext = vm;
         }
     }
 }

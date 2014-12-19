@@ -7,10 +7,33 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
 
-    <Grid>
-        <Grid>
-            <Image Source="..\Images\gitcafe.jpg" Stretch="Fill" Opacity="0.15" />
-        </Grid>
+    <Grid >
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DataContext="{Binding GitCafeRepository}">
+            <Border.Background>
+                <ImageBrush ImageSource="..\Images\gitcafe.jpg" Opacity="0.15" Stretch="Fill" />
+            </Border.Background>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*" />
+                    <ColumnDefinition Width="60*" />
+                </Grid.ColumnDefinitions>
+
+                <GroupBox Header="{Binding GitCafeRepository.Name}" >
+                    <TreeView HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <TreeViewItem Header="文件状态">
+                            <TreeViewItem Header="工作副本" />
+                        </TreeViewItem>
+                        <TreeViewItem Header="分支" ItemsSource="{Binding Branches}">
+ 
+                        </TreeViewItem>
+                        <TreeViewItem Header="标签" />
+                        <TreeViewItem Header="远程" />
+                    </TreeView>
+                </GroupBox>
+            </Grid>
+
+        </Border>
 
         <Grid x:Name="newOrClonePopupGrid" Visibility="{Binding NewOrClonePopupVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <Grid.Background>

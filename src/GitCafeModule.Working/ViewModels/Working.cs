@@ -37,6 +37,12 @@ namespace GitCafeModule.Working.ViewModels
             set { SetValue(() => NewOrClonePopupVisibility, value); }
         }
 
+        public GitCafeRepository GitCafeRepository
+        {
+            get { return GetValue(() => GitCafeRepository); }
+            set { SetValue(() => GitCafeRepository, value); }
+        }
+
         public ICommand NewOrCloneCacelCommand { get;private set; }
 
         private void ToolBarHandler(ToolBarClickType clickType)
@@ -46,6 +52,7 @@ namespace GitCafeModule.Working.ViewModels
                 ShowNewOrCloneDialog(true);
             }            
         }
+
         #region NewOrCloneDialog
         private void HideNewOrCloneDialog()
         {

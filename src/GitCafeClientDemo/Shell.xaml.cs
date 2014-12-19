@@ -12,6 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using LibGit2Sharp;
+using Microsoft.Practices.Prism.Events;
+using GitCafeCommon.PresentationEvent;
 
 namespace GitCafeClientDemo
 {
@@ -20,9 +23,33 @@ namespace GitCafeClientDemo
     /// </summary>
     public partial class Shell : MetroWindow
     {
-        public Shell()
+        private IEventAggregator eventAggregator;
+
+        public Shell(IEventAggregator eventAggregator)
         {
             InitializeComponent();
+            this.eventAggregator = eventAggregator;
+
+            this.Loaded += Shell_Loaded;
+        }
+
+        void Shell_Loaded(object sender, RoutedEventArgs e)
+        {
+            //try
+            //{
+            //    string defaultRepositoryPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\.git\");
+            //    Repository repository = new Repository(defaultRepositoryPath);
+            //    eventAggregator.GetEvent<CurrentRepositoryEvent>().Publish(new GitCafeRepository
+            //    {
+            //        Name = "GitCafeClientDemo",
+            //        LocalPath = defaultRepositoryPath,
+            //        Repository = repository
+            //    });
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
         }
     }
 }

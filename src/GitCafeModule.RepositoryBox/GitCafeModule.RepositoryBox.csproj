@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LibGit2Sharp, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GitCafeClientDemo\ThridParty\LibGit2Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\GitCafeClientDemo\ThridParty\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -70,6 +74,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="RepositoryBoxModule.cs" />
+    <Compile Include="ViewModels\RepositoryBoxViewModel.cs" />
     <Compile Include="Views\RepositoryBoxView.xaml.cs">
       <DependentUpon>RepositoryBoxView.xaml</DependentUpon>
     </Compile>
@@ -88,6 +93,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GitCafeCommon\GitCafeCommon.csproj">
+      <Project>{f65d112d-0c10-4a92-9469-c8adb23f99a2}</Project>
+      <Name>GitCafeCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
