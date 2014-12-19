@@ -19,9 +19,10 @@ namespace GitCafeModule.Working.Views
     /// </summary>
     public partial class WorkView : UserControl
     {
-        public WorkView()
+        public WorkView(ViewModels.WorkingViewModel vm)
         {
             InitializeComponent();
+            this.DataContext = vm;
         }
     }
 }

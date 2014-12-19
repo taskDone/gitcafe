@@ -3,41 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:GitCafeModule.ToolBar.Views"
              mc:Ignorable="d" >
 
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="Margin" Value="5,10,5,10" />
+            <Setter Property="Padding" Value="3" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <!--<Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#aaa" />
+                </Trigger>
+            </Style.Triggers>-->
+        </Style>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*" />
             <RowDefinition Height="70*" />
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
-        
+
         <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center">
             <Grid>
-                <Button Margin="10" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="0">
+                <Button x:Name="btnNewOrClone" Command="{Binding NewOrCloneCommand}">
                     <StackPanel Orientation="Vertical">
-                        <Image Source="../Images/clone.png" Stretch="Fill" Height="30" Width="30" />
+                        <Image Source="../Images/database_add.png" Stretch="Fill" Height="30" Width="30" />
                         <TextBlock Text="克隆/新建" Margin="0,3,0,0" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
                 <Border BorderBrush="#aaa" BorderThickness="0,0,1,0" Height="40"/>
             </Grid>
 
-            <Button Margin="10" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="0">
+            <Button Command="{Binding CommitCommand}">
                 <StackPanel Orientation="Vertical">
                     <Image Source="../Images/commit.png" Stretch="Fill" Height="30" Width="30" />
                     <TextBlock Text="提交" Margin="0,3,0,0" HorizontalAlignment="Center" />
                 </StackPanel>
             </Button>
 
-            <Button Margin="10" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="0">
+            <Button Command="{Binding AddCommand}">
                 <StackPanel Orientation="Vertical">
                     <Image Source="../Images/add.png" Stretch="Fill" Height="30" Width="30" />
                     <TextBlock Text="添加" Margin="0,3,0,0" HorizontalAlignment="Center" />
                 </StackPanel>
             </Button>
 
-            <Button Margin="10" Style="{DynamicResource MetroCircleButtonStyle}" BorderThickness="0">
+            <Button Command="{Binding PushCommand}">
                 <StackPanel Orientation="Vertical">
                     <Image Source="../Images/push.png" Stretch="Fill" Height="30" Width="30" />
                     <TextBlock Text="推送" Margin="0,3,0,0" HorizontalAlignment="Center" />
@@ -45,5 +66,5 @@
             </Button>
         </StackPanel>
     </Grid>
-        
+    
 </UserControl>

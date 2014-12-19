@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCafeModule.RepositoryBox
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCafeModule.Working", "GitCafeModule.Working\GitCafeModule.Working.csproj", "{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibGit2Sharp", "LibGit2Sharp\LibGit2Sharp.csproj", "{EE6ED99F-CB12-4683-B055-D28FC7357A34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitCafeCommon", "GitCafeCommon\GitCafeCommon.csproj", "{F65D112D-0C10-4A92-9469-C8ADB23F99A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,16 +63,16 @@ Global
 		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}.Release|x86.ActiveCfg = Release|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{EE6ED99F-CB12-4683-B055-D28FC7357A34}.Release|x86.ActiveCfg = Release|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F65D112D-0C10-4A92-9469-C8ADB23F99A2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

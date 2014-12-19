@@ -20,7 +20,9 @@ namespace GitCafeModule.ToolBar
 
         public void Initialize()
         {
-            regionViewRegistry.RegisterViewWithRegion("ToolBarRegion", typeof(Views.ToolBarView));
+            container.RegisterType<ViewModels.ToolBarViewModel>();
+            container.RegisterType<Views.ToolBarView>();
+            regionViewRegistry.RegisterViewWithRegion("ToolBarRegion", ()=>container.Resolve<Views.ToolBarView>());
         }
     }
 }

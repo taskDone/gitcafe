@@ -3,11 +3,103 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="600">
+
     <Grid>
+        <Grid>
+            <Image Source="..\Images\gitcafe.jpg" Stretch="Fill" Opacity="0.15" />
+        </Grid>
 
-        <Image Source="..\Images\gitcafe.jpg" Stretch="Fill" Opacity="0.15" />
+        <Grid x:Name="newOrClonePopupGrid" Visibility="{Binding NewOrClonePopupVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <Grid.Background>
+                <SolidColorBrush Opacity="0.4" Color="Gray" />
+            </Grid.Background>
 
+            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="220"
+                    BorderBrush="Black" BorderThickness="1" CornerRadius="3" Background="White" Padding="5">
+
+                <Controls:MetroAnimatedTabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TabItem Header="克隆仓库">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="75*" />
+                                <RowDefinition Height="25*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20*" />
+                                    <RowDefinition Height="30*"/>
+                                    <RowDefinition Height="30*"/>
+                                    <RowDefinition Height="20*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*" />
+                                    <ColumnDefinition Width="65*" />
+                                    <ColumnDefinition Width="15*" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <TextBlock Text="源路径/URL: " Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                <TextBlock Text="目标路径: " Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                                
+                                <Button Content="..." FontWeight="Bold" Grid.Row="1" Grid.Column="2" Margin="3" Padding="3" MinWidth="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Button Content="..." FontWeight="Bold" Grid.Row="2" Grid.Column="2" Margin="3" Padding="3" MinWidth="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+                            
+                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="1" >
+                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  FontFamily="SimSun" />
+                                    <Button Content="克隆" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  FontFamily="SimSun" />
+                                </StackPanel>
+                            </Border>
+
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="创建新仓库">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="75*" />
+                                <RowDefinition Height="25*" />
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20*" />
+                                    <RowDefinition Height="30*"/>
+                                    <RowDefinition Height="30*"/>
+                                    <RowDefinition Height="20*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="20*" />
+                                    <ColumnDefinition Width="65*" />
+                                    <ColumnDefinition Width="15*" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="名称: " Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                <TextBlock Text="目标路径: " Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                                <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                                <TextBox Grid.Row="2" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                                
+                                <Button Content="..." FontWeight="Bold" Grid.Row="2" Grid.Column="2" Margin="3" Padding="3" MinWidth="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Grid>
+
+                            <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="1" >
+                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  FontFamily="SimSun" />
+                                    <Button Content="创建" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  FontFamily="SimSun" />
+                                </StackPanel>
+                            </Border>
+
+                        </Grid>
+                    </TabItem>
+                </Controls:MetroAnimatedTabControl>
+            </Border>
+        </Grid>
     </Grid>
 </UserControl>

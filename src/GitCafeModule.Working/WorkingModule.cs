@@ -20,7 +20,9 @@ namespace GitCafeModule.Working
         }
         public void Initialize()
         {
-            regionViewRegistry.RegisterViewWithRegion("WorkingRegion", typeof(Views.WorkView));
+            container.RegisterType<ViewModels.WorkingViewModel>();
+            container.RegisterType<Views.WorkView>();
+            regionViewRegistry.RegisterViewWithRegion("WorkingRegion", () => container.Resolve<Views.WorkView>());
         }
     }
 }

@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\GitCafeClientDemo\ThridParty\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\GitCafeClientDemo\ThridParty\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -69,6 +72,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\Working.cs" />
     <Compile Include="Views\WorkView.xaml.cs">
       <DependentUpon>WorkView.xaml</DependentUpon>
     </Compile>
@@ -91,6 +95,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GitCafeCommon\GitCafeCommon.csproj">
+      <Project>{f65d112d-0c10-4a92-9469-c8adb23f99a2}</Project>
+      <Name>GitCafeCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

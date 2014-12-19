@@ -19,9 +19,10 @@ namespace GitCafeModule.ToolBar.Views
     /// </summary>
     public partial class ToolBarView : UserControl
     {
-        public ToolBarView()
+        public ToolBarView(ViewModels.ToolBarViewModel vm)
         {
             InitializeComponent();
+            this.DataContext = vm;
         }
     }
 }
