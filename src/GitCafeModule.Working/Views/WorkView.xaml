@@ -52,9 +52,11 @@
                             </Grid>
                             
                             <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="1" >
-                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  FontFamily="SimSun" />
-                                    <Button Content="克隆" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  FontFamily="SimSun" />
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Button Content="克隆" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
+                                            FontFamily="SimSun" />
+                                    <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
+                                            FontFamily="SimSun" Command="{Binding NewOrCloneCacelCommand}"/>                                    
                                 </StackPanel>
                             </Border>
 
@@ -90,9 +92,11 @@
                             </Grid>
 
                             <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="1" >
-                                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  FontFamily="SimSun" />
-                                    <Button Content="创建" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  FontFamily="SimSun" />
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <Button Content="创建" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
+                                            FontFamily="SimSun" />
+                                    <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
+                                            FontFamily="SimSun" Command="{Binding NewOrCloneCacelCommand}" />                                    
                                 </StackPanel>
                             </Border>
 
