@@ -6,14 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <UserControl.Resources>
-        <DataTemplate x:Key="listBoxTemplate">
-            <StackPanel Margin="3" Orientation="Vertical">
-                <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="3" />
-                <TextBlock Text="{Binding LocalPath}" />
-            </StackPanel>
-        </DataTemplate>
-    </UserControl.Resources>
     <Grid>
         <ListBox Padding="3" ItemsSource="{Binding Repositories, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                  SelectedItem="{Binding CurrentGitCafeRepositry}">
@@ -21,7 +13,7 @@
                 <DataTemplate>
                     <StackPanel Margin="3" Orientation="Vertical">
                     <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="3" />
-                    <TextBlock Text="{Binding LocalPath}" />
+                        <TextBlock Text="{Binding WorkPath}" />
                 </StackPanel>
                 </DataTemplate>                
             </ListBox.ItemTemplate>

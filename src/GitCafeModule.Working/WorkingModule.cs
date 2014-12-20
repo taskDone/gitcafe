@@ -6,7 +6,7 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
 
-namespace GitCafeModule.Working
+namespace GitCafeModule.WorkSpace
 {
     public class WorkingModule : IModule
     {
@@ -20,7 +20,7 @@ namespace GitCafeModule.Working
         }
         public void Initialize()
         {
-            container.RegisterType<ViewModels.WorkingViewModel>();
+            container.RegisterType<ViewModels.WorkSpaceViewModel>();
             container.RegisterType<Views.WorkView>();
             regionViewRegistry.RegisterViewWithRegion("WorkingRegion", () => container.Resolve<Views.WorkView>());
         }

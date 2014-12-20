@@ -39,6 +39,9 @@
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\GitCafeClientDemo\ThridParty\Sqlite\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\IGitCafeDao.cs" />
+    <Compile Include="Dao\SQLiteHelper.cs" />
     <Compile Include="Models\GitCafeReposity.cs" />
-    <Compile Include="PresentationEvent\ShowNewOrCloneDialogEvent.cs" />
+    <Compile Include="PresentationEvent\ChangeRepositoryEvent.cs" />
+    <Compile Include="PresentationEvent\LoadRepositoryDBEvent.cs" />
+    <Compile Include="PresentationEvent\ToolBarClickEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ActionCommand.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />

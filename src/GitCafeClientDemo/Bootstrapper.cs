@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Practices.Prism.UnityExtensions;
 using System.Windows;
+
+using Microsoft.Practices.Prism.Modularity;
+using Microsoft.Practices.Prism.UnityExtensions;
+using Microsoft.Practices.Prism.Regions;
+using Microsoft.Practices.Unity;
 
 using GitCafeModule.ToolBar;
 using GitCafeModule.RepositoryBox;
-using GitCafeModule.Working;
-using Microsoft.Practices.Prism.Modularity;
+using GitCafeModule.WorkSpace;
+using GitCafeCommon;
 
 namespace GitCafeClientDemo
 {
@@ -24,6 +28,15 @@ namespace GitCafeClientDemo
 
             App.Current.MainWindow = (Window)this.Shell;
             App.Current.MainWindow.Show();
+        }
+
+        protected override void ConfigureContainer()
+        {
+            base.ConfigureContainer();
+
+            Container.RegisterType<GitCafeCommon.Dao.SQLiteHelper>();
+            Container.RegisterType<GitCafeCommon.Dao.IGitCafeRepositoryDao, GitCafeCommon.Dao.GieCafeRepositoryDao>();
+            Container.RegisterType<GitCafeClientDemo.ViewModels.ShellViewModel>();
         }
 
         protected override void ConfigureModuleCatalog()

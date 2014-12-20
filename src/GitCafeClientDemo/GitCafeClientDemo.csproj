@@ -67,6 +67,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThridParty\Sqlite\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ThridParty\System.Windows.Interactivity.dll</HintPath>
@@ -88,6 +92,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ShellViewModel.cs" />
     <Page Include="Shell.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -121,6 +126,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="gitcafe.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -141,6 +149,9 @@
     <Resource Include="ThridParty\NativeBinaries\libgit2.license.txt" />
     <Content Include="ThridParty\NativeBinaries\x86\git2-4eb97ef.dll" />
     <Content Include="ThridParty\NativeBinaries\x86\git2-4eb97ef.pdb" />
+    <Content Include="ThridParty\Sqlite\System.Data.SQLite.dll" />
+    <Content Include="ThridParty\Sqlite\x64\SQLite.Interop.dll" />
+    <Content Include="ThridParty\Sqlite\x86\SQLite.Interop.dll" />
     <Content Include="ThridParty\System.Windows.Interactivity.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -156,9 +167,9 @@
       <Project>{FDF8101C-B7F2-4DFD-BF1F-2C9B25F5BFE1}</Project>
       <Name>GitCafeModule.ToolBar</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GitCafeModule.Working\GitCafeModule.Working.csproj">
+    <ProjectReference Include="..\GitCafeModule.Working\GitCafeModule.WorkSpace.csproj">
       <Project>{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}</Project>
-      <Name>GitCafeModule.Working</Name>
+      <Name>GitCafeModule.WorkSpace</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

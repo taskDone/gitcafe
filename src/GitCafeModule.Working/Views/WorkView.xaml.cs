@@ -12,14 +12,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GitCafeModule.Working.Views
+namespace GitCafeModule.WorkSpace.Views
 {
     /// <summary>
     /// WorkView.xaml 的交互逻辑
     /// </summary>
     public partial class WorkView : UserControl
     {
-        public WorkView(ViewModels.WorkingViewModel vm)
+        public WorkView(ViewModels.WorkSpaceViewModel vm)
         {
             InitializeComponent();
             this.DataContext = vm;

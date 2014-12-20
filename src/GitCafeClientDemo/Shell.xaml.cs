@@ -15,6 +15,7 @@ using MahApps.Metro.Controls;
 using LibGit2Sharp;
 using Microsoft.Practices.Prism.Events;
 using GitCafeCommon.PresentationEvent;
+using GitCafeCommon.Dao;
 
 namespace GitCafeClientDemo
 {
@@ -24,32 +25,29 @@ namespace GitCafeClientDemo
     public partial class Shell : MetroWindow
     {
         private IEventAggregator eventAggregator;
+        private IGitCafeRepositoryDao dao;
 
-        public Shell(IEventAggregator eventAggregator)
+        public Shell(IEventAggregator eventAggregator,IGitCafeRepositoryDao dao,ViewModels.ShellViewModel vm)
         {
             InitializeComponent();
+
             this.eventAggregator = eventAggregator;
+            this.dao = dao;
+            this.DataContext = vm;
 
             this.Loaded += Shell_Loaded;
         }
 
         void Shell_Loaded(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    string defaultRepositoryPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\.git\");
-            //    Repository repository = new Repository(defaultRepositoryPath);
-            //    eventAggregator.GetEvent<CurrentRepositoryEvent>().Publish(new GitCafeRepository
-            //    {
-            //        Name = "GitCafeClientDemo",
-            //        LocalPath = defaultRepositoryPath,
-            //        Repository = repository
-            //    });
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //}
+            Action action = new Action(LoadRepository);
+            action.BeginInvoke(null, null);
+        }
+        void LoadRepository()
+        {
+            var repoDB = dao.Load();
+            System.Threading.Thread.Sleep(200);
+            eventAggregator.GetEvent<LoadRepositoryDBEvent>().Publish(repoDB);
         }
     }
 }

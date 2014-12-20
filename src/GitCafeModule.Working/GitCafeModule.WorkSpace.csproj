@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{016D5A52-2235-45ED-AAC7-AACFC62843AD}</ProjectGuid>
+    <ProjectGuid>{3CBFAFF4-B96B-4F63-8CCA-DD181C47EADE}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GitCafeModule.RepositoryBox</RootNamespace>
-    <AssemblyName>GitCafeModule.RepositoryBox</AssemblyName>
+    <RootNamespace>GitCafeModule.WorkSpace</RootNamespace>
+    <AssemblyName>GitCafeModule.WorkSpace</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -38,6 +38,9 @@
     <Reference Include="LibGit2Sharp, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\GitCafeClientDemo\ThridParty\LibGit2Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\GitCafeClientDemo\ThridParty\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\GitCafeClientDemo\ThridParty\Microsoft.Practices.Prism.dll</HintPath>
@@ -74,11 +77,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RepositoryBoxModule.cs" />
-    <Compile Include="ViewModels\RepositoryBoxViewModel.cs" />
-    <Compile Include="Views\RepositoryBoxView.xaml.cs">
-      <DependentUpon>RepositoryBoxView.xaml</DependentUpon>
+    <Compile Include="ValueConverter\Null2Visibility.cs" />
+    <Compile Include="ViewModels\WorSpaceViewModel.cs" />
+    <Compile Include="Views\TreeViewExtensions.cs" />
+    <Compile Include="Views\WorkView.xaml.cs">
+      <DependentUpon>WorkView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WorkingModule.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,7 +95,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\RepositoryBoxView.xaml">
+    <Resource Include="Images\gitcafe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\WorkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
