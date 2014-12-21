@@ -59,7 +59,7 @@ namespace GitCafeModule.WorkSpace.ViewModels
             }, ThreadOption.UIThread, false);
             #endregion
 
-            CommitCommand = new DelegateCommand(CommitToDB,()=>!string.IsNullOrEmpty(CommitMessage));
+            CommitCommand = new DelegateCommand(CommitToDB);
             CacelCommand = new DelegateCommand(HideCommitMessage);
         }
 
@@ -235,7 +235,8 @@ namespace GitCafeModule.WorkSpace.ViewModels
             {
                 if (CommitMessage == null)
                 {
-                    this.GitCafeRepository.Repository.Commit("null message");
+                    return;
+                    //this.GitCafeRepository.Repository.Commit("null message");
                 }
                 else
                 {
