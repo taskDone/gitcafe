@@ -84,6 +84,9 @@
       <DependentUpon>CommitCommitUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TreeViewExtensions.cs" />
+    <Compile Include="Views\WorkingUC.xaml.cs">
+      <DependentUpon>WorkingUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WorkView.xaml.cs">
       <DependentUpon>WorkView.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\WorkingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WorkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,6 +123,18 @@
       <Project>{f65d112d-0c10-4a92-9469-c8adb23f99a2}</Project>
       <Name>GitCafeCommon</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons_added.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons_deleted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons_modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons_renamed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

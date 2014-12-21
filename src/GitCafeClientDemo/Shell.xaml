@@ -4,7 +4,7 @@
         xmlns:prism="http://www.codeplex.com/prism"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         GlowBrush="{DynamicResource AccentColorBrush}" ShowTitleBar="False"
-        Title="MainWindow" Height="600" Width="850">
+        Title="MainWindow" Height="600" Width="950">
 
     <Window.Resources>
         <Style x:Key="GridSplitterStyle" TargetType="{x:Type GridSplitter}">
@@ -99,9 +99,9 @@
             
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20*" MinWidth="130" />
+                    <ColumnDefinition Width="15*" MinWidth="130" />
                     <ColumnDefinition Width="7" />
-                    <ColumnDefinition Width="80*" />
+                    <ColumnDefinition Width="85*" />
                 </Grid.ColumnDefinitions>
 
                 <Border BorderBrush="#FFD8CDCD" BorderThickness="0,0,1,0" Margin="1,3,0,1" CornerRadius="3" Padding="4">

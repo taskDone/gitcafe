@@ -35,8 +35,16 @@ namespace GitCafeModule.WorkSpace.Views
             var header = tvItem.Header as Branch;
             if (header != null)
             {
+                this.workingUC.Visibility = System.Windows.Visibility.Collapsed;
+                this.commitUC.Visibility = System.Windows.Visibility.Visible;
                 vm.Branch = header;
             }
+        }
+
+        private void workItem_Selected_1(object sender, RoutedEventArgs e)
+        {
+            this.workingUC.Visibility = System.Windows.Visibility.Visible;
+            this.commitUC.Visibility = System.Windows.Visibility.Collapsed;
         }
     }
 }

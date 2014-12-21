@@ -20,6 +20,8 @@ namespace GitCafeModule.ToolBar.ViewModels
             this.eventAggregator = eventAggregator;
 
             NewOrCloneCommand = new DelegateCommand(CreateOrClone);
+
+            AddCommand = new DelegateCommand(AddToRepository);
         }
 
         #region property 
@@ -32,6 +34,11 @@ namespace GitCafeModule.ToolBar.ViewModels
         private void CreateOrClone()
         {
             eventAggregator.GetEvent<ToolBarClickEvent>().Publish(ToolBarClickType.NewOrClone);
+        }
+
+        private void AddToRepository()
+        {
+            eventAggregator.GetEvent<ToolBarClickEvent>().Publish(ToolBarClickType.Add);
         }
         //public static Window GetCurrentWindow()
         //{

@@ -34,26 +34,33 @@
                     </DataTemplate>
                 </GroupBox.HeaderTemplate>
                 <TreeView HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TreeViewItem Header="工作副本" />
+                    <TreeViewItem x:Name="workItem" Header="工作副本" Selected="workItem_Selected_1" />
 
-                    <TreeViewItem Header="分支" ItemsSource="{Binding GitCafeRepository.Repository.Branches}" IsExpanded="True" Selected="TreeViewItem_Selected" >
+                    <TreeViewItem Header="分支" ItemsSource="{Binding Branches}" IsExpanded="True" Selected="TreeViewItem_Selected" >
                         <TreeViewItem.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}" />
                             </DataTemplate>
                         </TreeViewItem.ItemTemplate>
                     </TreeViewItem>
-                    <TreeViewItem Header="标签" />
-                    <TreeViewItem Header="远程" />
+                    <TreeViewItem Header="标签" IsEnabled="False" />
+                    <TreeViewItem Header="远程"  IsEnabled="False"/>
                 </TreeView>
             </GroupBox>
 
             <GridSplitter Grid.Column="1" ResizeDirection="Columns" Width="7" Height="100" HorizontalAlignment="Center" 
                           BorderBrush="Black" VerticalAlignment="Center" />
 
-            <Border x:Name="borderBranch" BorderBrush="#aaa" BorderThickness="1" Grid.Column="2">
-                <my:CommitCommitUC />
-            </Border>
+            <!--<Border x:Name="borderBranch" BorderBrush="#aaa" BorderThickness="1" Grid.Column="2">
+                <my:CommitCommitUC  />
+                
+                <my:WorkingUC />
+            </Border>-->
+            <Grid Grid.Column="2">
+                <my:CommitCommitUC x:Name="commitUC" Visibility="Hidden"  />
+
+                <my:WorkingUC x:Name="workingUC" Visibility="Hidden"/>
+            </Grid>
         </Grid>
 
     </Border>

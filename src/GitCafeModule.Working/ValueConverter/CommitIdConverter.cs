@@ -55,7 +55,11 @@ namespace GitCafeModule.WorkSpace.ValueConverter
             {
                 if (commit.Parents != null)
                 {
-                    return commit.Parents.FirstOrDefault().Id.ToString(7);
+                    try
+                    {
+                        return commit.Parents.Single().Id.ToString(7);
+                    }
+                    catch { }
                 }
             }
             return null;
