@@ -39,10 +39,17 @@ namespace GitCafeModule.ToolBar.ViewModels
         }
 
         #region property 
+        /// <summary>
+        /// c
+        /// </summary>
         public ICommand NewOrCloneCommand { get; private set; }
+
         public ICommand CommitCommand { get; private set; }
+
         public ICommand AddCommand { get; private set; }
+
         public ICommand PushCommand { get; private set; }
+
         public bool CommitEnable
         {
             get { return GetValue(() => CommitEnable); }

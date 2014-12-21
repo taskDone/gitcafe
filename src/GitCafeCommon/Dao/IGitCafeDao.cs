@@ -8,14 +8,33 @@ using System.Data.SQLite;
 
 namespace GitCafeCommon.Dao
 {
+    /// <summary>
+    /// 仓库数据库操作
+    /// </summary>
     public interface IGitCafeRepositoryDao
     {
+        /// <summary>
+        /// 加载所有的仓库
+        /// </summary>
+        /// <returns></returns>
         List<GitCafeRepository> Load();
 
+        /// <summary>
+        /// Insert
+        /// </summary>
+        /// <param name="repository"></param>
         void Add(GitCafeRepository repository);
 
+        /// <summary>
+        /// Update
+        /// </summary>
+        /// <param name="repository"></param>
         void Update(GitCafeRepository repository);
 
+        /// <summary>
+        /// Delete
+        /// </summary>
+        /// <param name="id"></param>
         void Delete(int id);
     }
 

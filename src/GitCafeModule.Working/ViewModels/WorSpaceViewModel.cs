@@ -18,6 +18,7 @@ namespace GitCafeModule.WorkSpace.ViewModels
         private IEventAggregator eventAggregator;
         private SubscriptionToken changeRepositorySubscriptionToken;
         private SubscriptionToken recevieToolBarClickToken;
+        private SubscriptionToken windowActiveSUbscriptionToken;
 
         public WorkSpaceViewModel(IEventAggregator eventAggregator)
         {
@@ -37,17 +38,34 @@ namespace GitCafeModule.WorkSpace.ViewModels
                 }, ThreadOption.UIThread, false);
             #endregion
 
+            #region BarClick
             var barClickEvent = eventAggregator.GetEvent<ToolBarClickEvent>();
             if (recevieToolBarClickToken != null)
             {
                 barClickEvent.Unsubscribe(recevieToolBarClickToken);
             }
             recevieToolBarClickToken = barClickEvent.Subscribe(ToolBarHandler, ThreadOption.UIThread, false);
+            #endregion
+
+            #region WindowActive RefreshWorking
+            var windowActiveEvent = eventAggregator.GetEvent<WindowActiveEvent>();
+            if (windowActiveSUbscriptionToken != null)
+            {
+                windowActiveEvent.Unsubscribe(windowActiveSUbscriptionToken);
+            }
+            windowActiveSUbscriptionToken = windowActiveEvent.Subscribe((w) =>
+            {
+                RefreshWorking();
+            }, ThreadOption.UIThread, false);
+            #endregion
 
             CommitCommand = new DelegateCommand(CommitToDB);
             CacelCommand = new DelegateCommand(HideCommitMessage);
         }
 
+        /// <summary>
+        /// 当前的仓库
+        /// </summary>
         public GitCafeRepository GitCafeRepository
         {
             get { return GetValue(() => GitCafeRepository); }
@@ -62,18 +80,27 @@ namespace GitCafeModule.WorkSpace.ViewModels
             }
         }
 
+        /// <summary>
+        /// 所有分支
+        /// </summary>
         public IEnumerable<Branch> Branches
         {
             get { return GetValue(() => Branches); }
             set { SetValue(() => Branches, value); }
         }
 
+        /// <summary>
+        /// 当前分支
+        /// </summary>
         public Branch Branch
         {
             get { return GetValue(() => Branch); }
             set { SetValue(() => Branch, value); }
         }
 
+        /// <summary>
+        /// 选中的Commit信息
+        /// </summary>
         public Commit Commit
         {
             get { return GetValue(() => Commit); }
@@ -109,40 +136,63 @@ namespace GitCafeModule.WorkSpace.ViewModels
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public List<TreeEntryChanges> FileDetails
         {
             get { return GetValue(() => FileDetails); }
             set { SetValue(() => FileDetails, value); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<StatusEntry> UnTrackedStatus
         {
             get { return GetValue(() => UnTrackedStatus); }
             set { SetValue(() => UnTrackedStatus, value); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<StatusEntry> AddedStatus
         {
             get { return GetValue(() => AddedStatus); }
             set { SetValue(() => AddedStatus, value); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<StatusEntry> Status
         {
             get { return GetValue(() => Status); }
             set { SetValue(() => Status, value); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Visibility CommitMessageVisibility
         {
             get { return GetValue(() => CommitMessageVisibility); }
             set { SetValue(() => CommitMessageVisibility, value); }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string CommitMessage
         {
             get { return GetValue(() => CommitMessage); }
             set { SetValue(() => CommitMessage, value); }
         }
+
+        /// <summary>
+        /// 提交
+        /// </summary>
         public ICommand CommitCommand { get; set; }
         public ICommand CacelCommand { get; set; }
 
@@ -153,7 +203,6 @@ namespace GitCafeModule.WorkSpace.ViewModels
                 Status = this.GitCafeRepository.Repository.RetrieveStatus();
                 UnTrackedStatus = Status.Where(x => x.State == FileStatus.Untracked || x.State == FileStatus.Modified);                
                 AddedStatus = Status.Where(x => x.State == FileStatus.Added || x.State == FileStatus.Staged);
-                //SendChangeRepositoryEvent();
             }
             
         }

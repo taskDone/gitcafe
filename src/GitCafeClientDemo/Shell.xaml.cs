@@ -36,6 +36,12 @@ namespace GitCafeClientDemo
             this.DataContext = vm;
 
             this.Loaded += Shell_Loaded;
+            this.Activated += Shell_Activated;
+        }
+
+        private void Shell_Activated(object sender, EventArgs e)
+        {
+            eventAggregator.GetEvent<WindowActiveEvent>().Publish(new WindowActiveEx());
         }
 
         void Shell_Loaded(object sender, RoutedEventArgs e)
@@ -43,11 +49,22 @@ namespace GitCafeClientDemo
             Action action = new Action(LoadRepository);
             action.BeginInvoke(null, null);
         }
+
+        /// <summary>
+        /// 加载DB中仓库信息
+        /// </summary>
         void LoadRepository()
         {
             var repoDB = dao.Load();
             System.Threading.Thread.Sleep(200);
             eventAggregator.GetEvent<LoadRepositoryDBEvent>().Publish(repoDB);
         }
+
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    var dialog = new System.Windows.Forms.FolderBrowserDialog();
+        //    System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+        //    txtWorkDir.Text = dialog.SelectedPath;
+        //}
     }
 }

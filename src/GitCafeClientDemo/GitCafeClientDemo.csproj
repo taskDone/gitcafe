@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>default.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LibGit2Sharp, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -65,12 +68,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ThridParty\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThridParty\NLog\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ThridParty\Sqlite\System.Data.SQLite.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ThridParty\System.Windows.Interactivity.dll</HintPath>
@@ -134,9 +142,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\add.png" />
+    <Resource Include="default.ico" />
     <Content Include="ThridParty\LibGit2Sharp.dll" />
     <Content Include="ThridParty\MahApps.Metro.dll" />
     <Content Include="ThridParty\Microsoft.Practices.Prism.dll" />
@@ -149,6 +164,7 @@
     <Resource Include="ThridParty\NativeBinaries\libgit2.license.txt" />
     <Content Include="ThridParty\NativeBinaries\x86\git2-4eb97ef.dll" />
     <Content Include="ThridParty\NativeBinaries\x86\git2-4eb97ef.pdb" />
+    <Content Include="ThridParty\NLog\NLog.dll" />
     <Content Include="ThridParty\Sqlite\System.Data.SQLite.dll" />
     <Content Include="ThridParty\Sqlite\x64\SQLite.Interop.dll" />
     <Content Include="ThridParty\Sqlite\x86\SQLite.Interop.dll" />

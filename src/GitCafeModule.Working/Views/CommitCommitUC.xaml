@@ -14,33 +14,34 @@
         <vc:CommitParentIdConverter x:Key="commitParentIdConverter" />
         <vc:CommitTreeConverter x:Key="commitTreeConverter" />
     </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*" />
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
 
-        <DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Top" IsReadOnly="True" FontFamily="12" AutoGenerateColumns="False" SelectedIndex="0"
+        <Border BorderBrush="#aaa" BorderThickness="0 0 0 1" >
+            <DataGrid HorizontalAlignment="Stretch" VerticalAlignment="Top" IsReadOnly="True" FontFamily="12" AutoGenerateColumns="False" SelectedIndex="0"
                   CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding Branch.Commits}" SelectedItem="{Binding Commit}"
                   GridLinesVisibility="Horizontal">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="描述" Width="30*" Binding="{Binding MessageShort}" />
-                <DataGridTextColumn Header="日期" Width="20*" Binding="{Binding Committer.When ,StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"/>
-                <DataGridTextColumn Header="作者" Width="35*" Binding="{Binding Committer}" />
-                <DataGridTextColumn Header="提交" Width="15*" Binding="{Binding Id, Converter={StaticResource commitIdConverter}}" />
-            </DataGrid.Columns>
-        </DataGrid>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="描述" Width="30*" Binding="{Binding MessageShort}" />
+                    <DataGridTextColumn Header="日期" Width="20*" Binding="{Binding Committer.When ,StringFormat='{}{0:yyyy-MM-dd HH:mm}'}"/>
+                    <DataGridTextColumn Header="作者" Width="35*" Binding="{Binding Committer}" />
+                    <DataGridTextColumn Header="提交" Width="15*" Binding="{Binding Id, Converter={StaticResource commitIdConverter}}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
 
-        <GridSplitter Height="2" />
 
         <Grid Grid.Row="1">
-
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40*" />
                     <RowDefinition Height="60*" />
                 </Grid.RowDefinitions>
-                
+
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -63,10 +64,10 @@
                     <TextBlock Grid.Column="1" Grid.Row="1" Margin="3"  Text="{Binding Commit, Converter={StaticResource commitParentIdConverter}}" />
                     <TextBlock Grid.Column="1" Grid.Row="2" Margin="3"  Text="{Binding Commit.Committer}" />
                     <TextBlock Grid.Column="1" Grid.Row="3" Margin="3"  Text="{Binding Commit.Committer.When, StringFormat='{}{0:yyyy-MM-dd HH:mm}'}" />
-                    
+
                     <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Margin="3,10,3,3" TextWrapping="WrapWithOverflow" Text="{Binding Commit.Message}" />
                 </Grid>
-                
+
                 <GridSplitter Grid.Row="0" Grid.Column="0" Height="2" ResizeDirection="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
                 <Border Grid.Row="1" BorderBrush="#aaa" BorderThickness="1">
@@ -95,7 +96,7 @@
                                         </Image.Style>
                                     </Image>
                                     <TextBlock Text="{Binding Path}" Margin="3" />
-                                </StackPanel>                                
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

@@ -13,11 +13,18 @@ using GitCafeModule.ToolBar;
 using GitCafeModule.RepositoryBox;
 using GitCafeModule.WorkSpace;
 using GitCafeCommon;
+using NLog;
 
 namespace GitCafeClientDemo
 {
+    /// <summary>
+    /// 启动程序
+    /// 采用Unity作为IoC容器
+    /// </summary>
     public class Bootstrapper:UnityBootstrapper
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
         protected override System.Windows.DependencyObject CreateShell()
         {
             return this.Container.TryResolve<Shell>();

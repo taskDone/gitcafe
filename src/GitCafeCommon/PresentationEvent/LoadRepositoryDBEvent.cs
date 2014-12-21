@@ -9,4 +9,8 @@ namespace GitCafeCommon.PresentationEvent
     public class LoadRepositoryDBEvent : CompositePresentationEvent<List<GitCafeCommon.Models.GitCafeRepository>>
     {
     }
+
+    public class AddRepositoryDBEvent : CompositePresentationEvent<GitCafeCommon.Models.GitCafeRepository>
+    {
+    }
 }

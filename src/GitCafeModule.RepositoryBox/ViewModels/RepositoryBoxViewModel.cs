@@ -16,6 +16,8 @@ namespace GitCafeModule.RepositoryBox.ViewModels
     {
         private IEventAggregator eventAggregator;
         private SubscriptionToken loadRepositoryDBSubscriptionToken;
+        private SubscriptionToken addRepositoryDBSubscriptionToken;
+        
 
         public RepositoryBoxViewModel(IEventAggregator eventAggregator)
         {
@@ -23,6 +25,7 @@ namespace GitCafeModule.RepositoryBox.ViewModels
 
             Repositories = new BindingList<GitCafeRepository>();
 
+            #region Load All Repository
             var loadRepositoryDBEvent = eventAggregator.GetEvent<LoadRepositoryDBEvent>();
             if (loadRepositoryDBSubscriptionToken != null)
             {
@@ -35,6 +38,19 @@ namespace GitCafeModule.RepositoryBox.ViewModels
                         Repositories.Add(item);
                     }
                 }, ThreadOption.UIThread, false);
+            #endregion
+
+            #region Add Repository
+            var addRepositoryEvent = eventAggregator.GetEvent<AddRepositoryDBEvent>();
+            if (addRepositoryDBSubscriptionToken != null)
+            {
+                addRepositoryEvent.Unsubscribe(addRepositoryDBSubscriptionToken);
+            }
+            addRepositoryDBSubscriptionToken = addRepositoryEvent.Subscribe(rep =>
+                {
+                    Repositories.Add(rep);
+                }, ThreadOption.UIThread, false);
+            #endregion
         }
 
         public BindingList<GitCafeRepository> Repositories

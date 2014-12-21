@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:prism="http://www.codeplex.com/prism"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        GlowBrush="{DynamicResource AccentColorBrush}" ShowTitleBar="False"
+        GlowBrush="{DynamicResource AccentColorBrush}" ShowTitleBar="False" Icon="default.ico"
         Title="MainWindow" Height="600" Width="950">
 
     <Window.Resources>
@@ -84,39 +84,39 @@
             <Setter Property="BorderBrush" Value="#969696"/>
         </Style>
     </Window.Resources>
-    
+
     <Controls:MetroContentControl>
         <Grid>
             <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <Border BorderBrush="#FFD8CDCD" BorderThickness="0 0 0 1" Grid.ColumnSpan="2" > 
-                <ContentControl HorizontalAlignment="Left" VerticalAlignment="Center" prism:RegionManager.RegionName="ToolBarRegion" />
-            </Border>
-            
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="15*" MinWidth="130" />
-                    <ColumnDefinition Width="7" />
-                    <ColumnDefinition Width="85*" />
-                </Grid.ColumnDefinitions>
-
-                <Border BorderBrush="#FFD8CDCD" BorderThickness="0,0,1,0" Margin="1,3,0,1" CornerRadius="3" Padding="4">
-                    <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" prism:RegionManager.RegionName="RepositoryBoxRegion" />
+                <Border BorderBrush="#FFD8CDCD" BorderThickness="0 0 0 1" Grid.ColumnSpan="2" >
+                    <ContentControl HorizontalAlignment="Left" VerticalAlignment="Center" prism:RegionManager.RegionName="ToolBarRegion" />
                 </Border>
 
-                <GridSplitter  Grid.Column="1" ResizeDirection="Columns" Width="7" Height="100" HorizontalAlignment="Center" 
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*" MinWidth="130" />
+                        <ColumnDefinition Width="7" />
+                        <ColumnDefinition Width="85*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="#FFD8CDCD" BorderThickness="0,0,1,0" Margin="1,3,0,1" CornerRadius="3" Padding="4">
+                        <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" prism:RegionManager.RegionName="RepositoryBoxRegion" />
+                    </Border>
+
+                    <GridSplitter  Grid.Column="1" ResizeDirection="Columns" Width="7" Height="100" HorizontalAlignment="Center" 
                           BorderBrush="Black" VerticalAlignment="Center" Style="{StaticResource GridSplitterStyle}" />
 
-                <Border Grid.Column="2" BorderBrush="#FFD8CDCD" BorderThickness="1 0 0 0" Margin="0,3,1,1" Padding="4" CornerRadius="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                    <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" prism:RegionManager.RegionName="WorkingRegion" />
-                </Border>
-            </Grid>            
-        </Grid>
-            
+                    <Border Grid.Column="2" BorderBrush="#FFD8CDCD" BorderThickness="1 0 0 0" Margin="0,3,1,1" Padding="4" CornerRadius="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" prism:RegionManager.RegionName="WorkingRegion" />
+                    </Border>
+                </Grid>
+            </Grid>
+
             <Grid x:Name="newOrClonePopupGrid" Visibility="{Binding NewOrClonePopupVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <Grid.Background>
                     <SolidColorBrush Opacity="0.4" Color="Gray" />
@@ -149,22 +149,24 @@
                                     <TextBlock Text="源路径/URL: " Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
                                     <TextBlock Text="目标路径: " Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-                                    <TextBox Grid.Row="2" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-
-                                    <Button Content="..." FontWeight="Bold" Grid.Row="1" Grid.Column="2" Margin="3" Padding="3" MinWidth="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    <Button Content="..." FontWeight="Bold" Grid.Row="2" Grid.Column="2" Margin="3" Padding="3" MinWidth="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                             Text="{Binding GitSource}"/>
+                                    <TextBox x:Name="txtWorkDir" Grid.Row="2" Grid.Column="1" Margin="3" Padding="3" HorizontalAlignment="Stretch" 
+                                             VerticalAlignment="Center" Text="{Binding WorkPath}"/>
+                                    <Button Content="..." FontWeight="Bold" Grid.Row="2" Grid.Column="2" Margin="3" Padding="3" MinWidth="40" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding BrowserCommand}"/>
                                 </Grid>
 
                                 <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="1" >
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                         <Button Content="克隆" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
-                                            FontFamily="SimSun" />
+                                            FontFamily="SimSun" Command="{Binding CloneCommand}"/>
                                         <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
                                             FontFamily="SimSun" Command="{Binding NewOrCloneCacelCommand}"/>
                                     </StackPanel>
                                 </Border>
 
+                                <Controls:ProgressRing IsActive="{Binding IsCloning}"  
+                                                       Foreground="{DynamicResource AccentColorBrush}" />
                             </Grid>
                         </TabItem>
                         <TabItem Header="创建新仓库">
@@ -199,7 +201,7 @@
                                 <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="1" >
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                         <Button Content="创建" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
-                                            FontFamily="SimSun" />
+                                            FontFamily="SimSun" Command="{Binding CreateRepositoryCommand}" />
                                         <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
                                             FontFamily="SimSun" Command="{Binding NewOrCloneCacelCommand}" />
                                     </StackPanel>
@@ -211,6 +213,6 @@
                 </Border>
             </Grid>
         </Grid>
-        
+
     </Controls:MetroContentControl>
 </Controls:MetroWindow>
