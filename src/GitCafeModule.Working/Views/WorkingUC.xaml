@@ -53,14 +53,15 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="提交信息:" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Center" />
-                    
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" Grid.Row="1" Text="{Binding CommitMessage}" />
+
+                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" Grid.Row="1" 
+                             Text="{Binding CommitMessage}" />
                     <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="2" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <Button Content="克隆" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
-                                            FontFamily="SimSun" />
+                                            FontFamily="SimSun" Command="{Binding CommitCommand}" />
                             <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
-                                            FontFamily="SimSun" Command="{Binding NewOrCloneCacelCommand}"/>
+                                            FontFamily="SimSun" Command="{Binding CacelCommand}"/>
                         </StackPanel>
                     </Border>
 

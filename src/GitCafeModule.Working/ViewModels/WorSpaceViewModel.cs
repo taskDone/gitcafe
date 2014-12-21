@@ -23,6 +23,8 @@ namespace GitCafeModule.WorkSpace.ViewModels
         {
             this.eventAggregator = eventAggregator;
 
+            CommitMessageVisibility = Visibility.Collapsed;
+
             #region ChangeRepository
             var changeRepositoryEvent = eventAggregator.GetEvent<ChangeRepositoryEvent>();
             if (changeRepositorySubscriptionToken != null)
@@ -41,6 +43,9 @@ namespace GitCafeModule.WorkSpace.ViewModels
                 barClickEvent.Unsubscribe(recevieToolBarClickToken);
             }
             recevieToolBarClickToken = barClickEvent.Subscribe(ToolBarHandler, ThreadOption.UIThread, false);
+
+            CommitCommand = new DelegateCommand(CommitToDB);
+            CacelCommand = new DelegateCommand(HideCommitMessage);
         }
 
         public GitCafeRepository GitCafeRepository
@@ -128,6 +133,19 @@ namespace GitCafeModule.WorkSpace.ViewModels
             set { SetValue(() => Status, value); }
         }
 
+        public Visibility CommitMessageVisibility
+        {
+            get { return GetValue(() => CommitMessageVisibility); }
+            set { SetValue(() => CommitMessageVisibility, value); }
+        }
+        public string CommitMessage
+        {
+            get { return GetValue(() => CommitMessage); }
+            set { SetValue(() => CommitMessage, value); }
+        }
+        public ICommand CommitCommand { get; set; }
+        public ICommand CacelCommand { get; set; }
+
         private void RefreshWorking()
         {
             if (this.GitCafeRepository != null)
@@ -148,7 +166,7 @@ namespace GitCafeModule.WorkSpace.ViewModels
             }
             else if (ToolBarClickType.Commit == clickType)
             {
-                CommitToDB();
+                CommitMessageVisibility = Visibility.Visible;
             }
         }
 
@@ -166,15 +184,30 @@ namespace GitCafeModule.WorkSpace.ViewModels
         {
             try
             {
-                this.GitCafeRepository.Repository.Commit("test commit");
+                if (CommitMessage == null)
+                {
+                    this.GitCafeRepository.Repository.Commit("null message");
+                }
+                else
+                {
+                    this.GitCafeRepository.Repository.Commit(CommitMessage);
+                }
             }
             catch { }
             RefreshWorking();
+            HideCommitMessage();
         }
 
         public void SendChangeRepositoryEvent()
         {
             eventAggregator.GetEvent<ChangeRepositoryEvent>().Publish(this.GitCafeRepository);
         }
+
+        private void HideCommitMessage()
+        {
+            CommitMessageVisibility = Visibility.Collapsed;
+        }
+
+
     }
 }
