@@ -59,7 +59,7 @@ namespace GitCafeModule.WorkSpace.ViewModels
             }, ThreadOption.UIThread, false);
             #endregion
 
-            CommitCommand = new DelegateCommand(CommitToDB);
+            CommitCommand = new DelegateCommand(CommitToDB,()=>!string.IsNullOrEmpty(CommitMessage));
             CacelCommand = new DelegateCommand(HideCommitMessage);
         }
 
