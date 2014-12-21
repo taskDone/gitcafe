@@ -133,8 +133,8 @@ namespace GitCafeModule.WorkSpace.ViewModels
             if (this.GitCafeRepository != null)
             {
                 Status = this.GitCafeRepository.Repository.RetrieveStatus();
-                UnTrackedStatus = Status.Where(x => x.State == FileStatus.Untracked || x.State == FileStatus.Modified);
-                AddedStatus = Status.Where(x => x.State == FileStatus.Added);
+                UnTrackedStatus = Status.Where(x => x.State == FileStatus.Untracked || x.State == FileStatus.Modified);                
+                AddedStatus = Status.Where(x => x.State == FileStatus.Added || x.State == FileStatus.Staged);
             }
             
         }
@@ -161,7 +161,11 @@ namespace GitCafeModule.WorkSpace.ViewModels
 
         private void CommitToDB()
         {
-            this.GitCafeRepository.Repository.Commit("test commit");
+            try
+            {
+                this.GitCafeRepository.Repository.Commit("test commit");
+            }
+            catch { }
             RefreshWorking();
         }
     }
