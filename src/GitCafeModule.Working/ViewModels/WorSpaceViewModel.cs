@@ -155,6 +155,7 @@ namespace GitCafeModule.WorkSpace.ViewModels
             {
                 this.GitCafeRepository.Repository.Stage(item.FilePath);
             }
+
             RefreshWorking();
         }
 
