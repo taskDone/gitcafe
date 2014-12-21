@@ -135,6 +135,7 @@ namespace GitCafeModule.WorkSpace.ViewModels
                 Status = this.GitCafeRepository.Repository.RetrieveStatus();
                 UnTrackedStatus = Status.Where(x => x.State == FileStatus.Untracked || x.State == FileStatus.Modified);                
                 AddedStatus = Status.Where(x => x.State == FileStatus.Added || x.State == FileStatus.Staged);
+                //SendChangeRepositoryEvent();
             }
             
         }

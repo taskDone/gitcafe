@@ -17,7 +17,7 @@ namespace GitCafeModule.ToolBar.ViewModels
     public class ToolBarViewModel:ViewModelBase
     {
         private IEventAggregator eventAggregator;
-        private SubscriptionToken changeRepositorySubscriptionToken;
+        //private SubscriptionToken changeRepositorySubscriptionToken;
 
         public ToolBarViewModel(IEventAggregator eventAggregator)
         {
@@ -30,12 +30,12 @@ namespace GitCafeModule.ToolBar.ViewModels
             AddCommand = new DelegateCommand(AddToRepository);
             CommitCommand = new DelegateCommand(CommitRepository);
 
-            var changeRepositoryEvent = eventAggregator.GetEvent<ChangeRepositoryEvent>();
-            if (changeRepositorySubscriptionToken != null)
-            {
-                changeRepositoryEvent.Unsubscribe(changeRepositorySubscriptionToken);
-            }
-            changeRepositorySubscriptionToken = changeRepositoryEvent.Subscribe(RefreshButtonEnable,ThreadOption.UIThread,false);
+            //var changeRepositoryEvent = eventAggregator.GetEvent<ChangeRepositoryEvent>();
+            //if (changeRepositorySubscriptionToken != null)
+            //{
+            //    changeRepositoryEvent.Unsubscribe(changeRepositorySubscriptionToken);
+            //}
+            //changeRepositorySubscriptionToken = changeRepositoryEvent.Subscribe(RefreshButtonEnable,ThreadOption.UIThread,false);
         }
 
         #region property 

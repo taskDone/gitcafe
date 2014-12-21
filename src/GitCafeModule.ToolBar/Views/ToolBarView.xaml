@@ -44,14 +44,14 @@
                 <Border BorderBrush="#aaa" BorderThickness="0,0,1,0" Height="40"/>
             </Grid>
 
-            <Button Command="{Binding CommitCommand}" IsEnabled="{Binding CommitEnable}">
+            <Button Command="{Binding CommitCommand}" >
                 <StackPanel Orientation="Vertical">
                     <Image Source="../Images/commit.png" Stretch="Fill" Height="30" Width="30" />
                     <TextBlock Text="提交" Margin="0,3,0,0" HorizontalAlignment="Center" />
                 </StackPanel>
             </Button>
 
-            <Button Command="{Binding AddCommand}" IsEnabled="{Binding AddEnable}">
+            <Button Command="{Binding AddCommand}">
                 <StackPanel Orientation="Vertical">
                     <Image Source="../Images/add.png" Stretch="Fill" Height="30" Width="30" />
                     <TextBlock Text="添加" Margin="0,3,0,0" HorizontalAlignment="Center" />

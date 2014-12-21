@@ -38,7 +38,7 @@ namespace GitCafeModule.WorkSpace.Views
                 this.workingUC.Visibility = System.Windows.Visibility.Collapsed;
                 this.commitUC.Visibility = System.Windows.Visibility.Visible;
                 vm.Branch = header;
-                vm.SendChangeRepositoryEvent();
+                //vm.SendChangeRepositoryEvent();
             }
         }
 

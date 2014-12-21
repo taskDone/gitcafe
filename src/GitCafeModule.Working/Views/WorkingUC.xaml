@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-        <Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
             <RowDefinition Height="40*" />
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
@@ -22,8 +23,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </GroupBox>
-        
-        <GridSplitter Height="1" ResizeDirection="Rows" />
+                
         <GroupBox Header="未暂存的文件" Grid.Row="1" >
             <ListBox ItemsSource="{Binding UnTrackedStatus}">
                 <ListBox.ItemTemplate>
@@ -35,5 +35,37 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </GroupBox>
+        </Grid>
+
+        <Grid Visibility="{Binding CommitMessageVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <Grid.Background>
+                <SolidColorBrush Opacity="0.4" Color="Gray" />
+            </Grid.Background>
+            
+            <Border HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="220"
+                    BorderBrush="Black" BorderThickness="1" CornerRadius="3" Background="White" Padding="5">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="提交信息:" FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    
+                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap" Grid.Row="1" Text="{Binding CommitMessage}" />
+                    <Border BorderBrush="Silver" BorderThickness="0,1,0,0" Grid.Row="2" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Content="克隆" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
+                                            FontFamily="SimSun" />
+                            <Button Content="取消" VerticalAlignment="Center"  Height="30" MinWidth="45" Margin="5,3,3,0"  
+                                            FontFamily="SimSun" Command="{Binding NewOrCloneCacelCommand}"/>
+                        </StackPanel>
+                    </Border>
+
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </UserControl>
