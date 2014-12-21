@@ -138,6 +138,7 @@ namespace GitCafeModule.WorkSpace.ViewModels
             }
             
         }
+
         private void ToolBarHandler(ToolBarClickType clickType)
         {
             if (ToolBarClickType.Add == clickType)
@@ -149,6 +150,7 @@ namespace GitCafeModule.WorkSpace.ViewModels
                 CommitToDB();
             }
         }
+
         private void AddToDB()
         {
             foreach (var item in UnTrackedStatus)
@@ -167,6 +169,11 @@ namespace GitCafeModule.WorkSpace.ViewModels
             }
             catch { }
             RefreshWorking();
+        }
+
+        public void SendChangeRepositoryEvent()
+        {
+            eventAggregator.GetEvent<ChangeRepositoryEvent>().Publish(this.GitCafeRepository);
         }
     }
 }
