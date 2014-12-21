@@ -22,6 +22,8 @@ namespace GitCafeModule.ToolBar.ViewModels
             NewOrCloneCommand = new DelegateCommand(CreateOrClone);
 
             AddCommand = new DelegateCommand(AddToRepository);
+
+            CommitCommand = new DelegateCommand(CommitRepository);
         }
 
         #region property 
@@ -39,6 +41,11 @@ namespace GitCafeModule.ToolBar.ViewModels
         private void AddToRepository()
         {
             eventAggregator.GetEvent<ToolBarClickEvent>().Publish(ToolBarClickType.Add);
+        }
+
+        private void CommitRepository()
+        {
+            eventAggregator.GetEvent<ToolBarClickEvent>().Publish(ToolBarClickType.Commit);
         }
         //public static Window GetCurrentWindow()
         //{

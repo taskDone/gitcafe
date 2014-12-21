@@ -140,9 +140,13 @@ namespace GitCafeModule.WorkSpace.ViewModels
         }
         private void ToolBarHandler(ToolBarClickType clickType)
         {
-            if (clickType == ToolBarClickType.Add)
+            if (ToolBarClickType.Add == clickType)
             {
                 AddToDB();
+            }
+            else if (ToolBarClickType.Commit == clickType)
+            {
+                CommitToDB();
             }
         }
         private void AddToDB()
@@ -151,6 +155,13 @@ namespace GitCafeModule.WorkSpace.ViewModels
             {
                 this.GitCafeRepository.Repository.Stage(item.FilePath);
             }
+            RefreshWorking();
+        }
+
+        private void CommitToDB()
+        {
+            this.GitCafeRepository.Repository.Commit("test commit");
+            RefreshWorking();
         }
     }
 }
