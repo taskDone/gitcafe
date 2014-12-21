@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibGit2Sharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,23 @@ namespace GitCafeModule.WorkSpace.Views
     /// </summary>
     public partial class WorkView : UserControl
     {
+        private ViewModels.WorkSpaceViewModel vm;
         public WorkView(ViewModels.WorkSpaceViewModel vm)
         {
             InitializeComponent();
+
+            this.vm = vm;
             this.DataContext = vm;
+        }
+
+        private void TreeViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            var tvItem = e.OriginalSource as TreeViewItem;
+            var header = tvItem.Header as Branch;
+            if (header != null)
+            {
+                vm.Branch = header;
+            }
         }
     }
 }

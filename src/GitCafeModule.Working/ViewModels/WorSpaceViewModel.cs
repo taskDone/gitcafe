@@ -47,48 +47,18 @@ namespace GitCafeModule.WorkSpace.ViewModels
             set { SetValue(() => GitCafeRepository, value); }
         }
 
-        public BindingList<Branch> Branches
-        {
-            get
-            {
-                if (GitCafeRepository != null)
-                {
-                    var lst = new BindingList<Branch>();
-                    foreach (var branch in GitCafeRepository.Repository.Branches)
-                    {
-                        lst.Add(branch);
-                    }
-                    return lst;
-                    
-                }
-                return null;
-            }
-        }
         public Branch Branch
         {
-            get
-            {
-                if (GitCafeRepository == null)
-                {
-                    return null;
-                } 
-                return GitCafeRepository.Repository.Branches["master"];
-            }
+            get { return GetValue(() => Branch); }
+            set { SetValue(() => Branch, value); }
         }
-        public BindingList<Commit> Commits
+
+        public Commit Commit
         {
-            get
+            get { return GetValue(() => Commit); }
+            set
             {
-                if (Branch != null)
-                {
-                    var lst = new BindingList<Commit>();
-                    foreach (var commit in Branch.Commits)
-                    {
-                        lst.Add(commit);
-                    }
-                    return lst;
-                }
-                return null;
+                SetValue(() => Commit, value);
             }
         }
     }

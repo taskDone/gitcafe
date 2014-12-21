@@ -36,8 +36,7 @@
                 <TreeView HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <TreeViewItem Header="工作副本" />
 
-                    <TreeViewItem Header="分支" ItemsSource="{Binding Branches}" IsExpanded="True"
-                                  my:TreeViewExtensions.SelectedItems="{Binding Branch}">
+                    <TreeViewItem Header="分支" ItemsSource="{Binding GitCafeRepository.Repository.Branches}" IsExpanded="True" Selected="TreeViewItem_Selected" >
                         <TreeViewItem.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}" />
@@ -53,63 +52,7 @@
                           BorderBrush="Black" VerticalAlignment="Center" />
 
             <Border x:Name="borderBranch" BorderBrush="#aaa" BorderThickness="1" Grid.Column="2">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50*" />
-                        <RowDefinition Height="50*" />
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50*" />
-                        <ColumnDefinition Width="50*" />
-                    </Grid.ColumnDefinitions>
-
-                    <DataGrid x:Name="dgCommitInfo" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                              ItemsSource="{Binding Branch.Commits}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="描述" Width="70*" Binding="{Binding Message}" />
-                            <DataGridTextColumn Header="日期" Width="10*" Binding="{Binding Desc}" />
-                            <DataGridTextColumn Header="作者" Width="10*" Binding="{Binding Desc}" />
-                            <DataGridTextColumn Header="提交" Width="10*" Binding="{Binding Id}" />
-                        </DataGrid.Columns>
-                    </DataGrid>
-
-                    <Grid Grid.Row="1" x:Name="gridDetailInfo">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50*" />
-                            <RowDefinition Height="5" />
-                            <RowDefinition Height="50*" />
-                        </Grid.RowDefinitions>
-
-                        <Border BorderBrush="#aaa" BorderThickness="1" >
-                            <Grid x:Name="gridDetailLog">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock Text="提交: " FontWeight="Bold" HorizontalAlignment="Left" />
-                                <TextBlock Text="父级: " FontWeight="Bold" HorizontalAlignment="Left" Grid.Row="1" />
-                                <TextBlock Text="作者: " FontWeight="Bold" HorizontalAlignment="Left" Grid.Row="2"/>
-                                <TextBlock Text="日期: " FontWeight="Bold" HorizontalAlignment="Left" Grid.Row="3"/>
-                                <TextBlock Text="标签: " FontWeight="Bold" HorizontalAlignment="Left" Grid.Row="4"/>
-                            </Grid>
-                        </Border>
-                        
-                        <GridSplitter Grid.Row="1" ResizeDirection="Rows" HorizontalAlignment="Center" BorderBrush="Black" VerticalAlignment="Center" />
-                        <Border BorderBrush="#aaa" BorderThickness="2" Grid.Row="1">
-                            
-                        </Border>
-                    </Grid>
-                </Grid>
+                <my:CommitCommitUC />
             </Border>
         </Grid>
 

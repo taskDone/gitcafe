@@ -77,8 +77,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ValueConverter\CommitIdConverter.cs" />
     <Compile Include="ValueConverter\Null2Visibility.cs" />
     <Compile Include="ViewModels\WorSpaceViewModel.cs" />
+    <Compile Include="Views\CommitCommitUC.xaml.cs">
+      <DependentUpon>CommitCommitUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TreeViewExtensions.cs" />
     <Compile Include="Views\WorkView.xaml.cs">
       <DependentUpon>WorkView.xaml</DependentUpon>
@@ -98,6 +102,10 @@
     <Resource Include="Images\gitcafe.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\CommitCommitUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WorkView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
